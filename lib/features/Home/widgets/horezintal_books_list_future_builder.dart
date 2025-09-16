@@ -1,20 +1,19 @@
-import 'package:booklyapp/Utils/app_colors.dart';
-import 'package:booklyapp/Utils/app_images.dart';
-import 'package:booklyapp/features/Home/widgets/vertical_list_view_builder.dart';
-import 'package:booklyapp/services/get_newest_books_service.dart';
+import 'package:booklyapp/features/Home/widgets/horezintal_list_view_builder.dart'
+    show HorezotalListViewBuilder;
+import 'package:booklyapp/services/get_all_books_service.dart';
 import 'package:flutter/material.dart';
 
-class VerticalListOfBooksFuturBuilder extends StatelessWidget {
-  const VerticalListOfBooksFuturBuilder({super.key});
+class HorezintalListOfBooksFutureBuilder extends StatelessWidget {
+  const HorezintalListOfBooksFutureBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: GetNewestBooksService.getNewestBooks(),
+      future: GetAllBooksService.getAllBooks(),
       builder: (context, snapshot) {
         if (!snapshot.hasError) {
           if (snapshot.connectionState == ConnectionState.done) {
-            return VerticalListViewBuilder(books: snapshot.data!,);
+            return HorezotalListViewBuilder(books: snapshot.data!);
           } else {
             return const Center(child: CircularProgressIndicator());
           }

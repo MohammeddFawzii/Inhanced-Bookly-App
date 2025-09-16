@@ -1,11 +1,11 @@
 import 'package:booklyapp/features/Home/widgets/Vertical_books_list.dart';
-import 'package:booklyapp/features/Home/widgets/horezintal_books_list.dart'
-    show HorezintalListOfBooks;
+import 'package:booklyapp/features/Home/widgets/horezintal_books_list_future_builder.dart'
+    show HorezintalListOfBooksFutureBuilder;
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
-  final SizedBox s1 = const SizedBox(height: 28);
+  final SizedBox s1 = const SizedBox(height: 10);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class HomeViewBody extends StatelessWidget {
         slivers: [
           SliverToBoxAdapter(child: s1),
 
-          SliverToBoxAdapter(child: HorezintalListOfBooks()),
+          SliverToBoxAdapter(child: HorezintalListOfBooksFutureBuilder()),
 
           SliverToBoxAdapter(child: s1),
 
@@ -32,7 +32,7 @@ class HomeViewBody extends StatelessWidget {
           ),
           SliverToBoxAdapter(child: s1),
 
-          VerticalListOfBooks(),
+          SliverToBoxAdapter(child: VerticalListOfBooksFuturBuilder()),
         ],
       ),
     );
